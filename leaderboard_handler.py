@@ -9,4 +9,7 @@ class LeaderBoardHandler:
 
     def get_leaderboard(self, hackathon_id):
         self.hackathon_entity_object.hackathon_id = hackathon_id
+        result = self.dao.get_sorted_scores(self.hackathon_entity_object)
+        if len(result) == 0:
+            return "No submissions yet"
         return self.dao.get_sorted_scores(self.hackathon_entity_object)

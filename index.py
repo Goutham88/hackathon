@@ -1,10 +1,11 @@
+import validictory
 from flask import request, Flask, json
 from flask_restful import Api
-from base_controller import BaseController
 
+from base_controller import BaseController
+from common_validation import SCHEMA
 from leaderboard_handler import LeaderBoardHandler
 from submission_handler import SubmissionHandler
-from data_accessor import DataAccessor
 
 app = Flask(__name__)
 app.secret_key = "secret key"
@@ -39,6 +40,7 @@ class SubmissionController(BaseController):
     def post(self):
         try:
             request_data = request.get_json()
+            validictory.validate(request_data, SCHEMA["submission_post_schema"])
             files = request_data.get("files")
             hackathon_id = request_data.get("hackathon_id")
             group_id = request_data.get("group_id")

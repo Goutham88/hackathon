@@ -17,22 +17,23 @@ class DataAccessor:
         self.cursor.execute(query % hackathon_entity_object.hackathon_id)
         return self.cursor.fetchall()
 
-    def insert_submission_details(self, group_entity_object, score):
+    def insert_submission_details(self, group_entity_object, submission_entity_object):
         query = "select hackathon_group_id from hackathon_groups where group_id = %s"
         self.cursor.execute(query % group_entity_object.group_id)
-        hackathon_group_id =  self.cursor.fetchall()
+        submission_entity_object.hackathon_group_id = self.cursor.fetchall()[0]["hackathon_group_id"]
 
         query = "insert into submissions(hackathon_group_id, score) values (%s, %s)"
-        self.cursor.execute(query % (hackathon_group_id, score))
+        self.cursor.execute(query % (submission_entity_object.hackathon_group_id, submission_entity_object.score))
         self.conn.commit()
-        self.update_max_score(group_entity_object.group_id, score)
+        self.update_max_score(group_entity_object, submission_entity_object)
+        return submission_entity_object
 
-    def update_max_score(self, group_entity_object, score):
+    def update_max_score(self, group_entity_object, submission_entity_object):
         query = "select max_score from groups where group_id = %s"
         self.cursor.execute(query % group_entity_object.group_id)
-        max_score = self.cursor.fetchall()
-        if score > max_score:
-            group_entity_object.max_score = score
+        max_score = self.cursor.fetchall()[0]["max_score"]
+        if submission_entity_object.score > max_score:
+            group_entity_object.max_score = submission_entity_object.score
             query = "update groups set score = %s where group_id = %s"
-            self.cursor.execute(query % (score, group_entity_object.group_id))
+            self.cursor.execute(query % (submission_entity_object.score, group_entity_object.group_id))
             self.conn.commit()

@@ -11,6 +11,7 @@ INPUT = {"type": "string", "minLength": 1, "maxLength": 100}
 OUTPUT = {"type": "string", "minLength": 1, "maxLength": 100}
 WEIGHTAGE = {"type": ["integer", "string"], "pattern": "^[0-9]+$"}
 IS_PUBLIC = {"type": "boolean"}
+SCORE = {"type": ["integer", "string"], "pattern": "^[0-9]+$"}
 
 VALIDATION_MAP = {
     "group_id": GROUP_ID,
@@ -26,5 +27,16 @@ VALIDATION_MAP = {
     "input": INPUT,
     "output": OUTPUT,
     "weightage": WEIGHTAGE,
-    "is_public": IS_PUBLIC
+    "is_public": IS_PUBLIC,
+    "score": SCORE
+}
+
+SCHEMA = {
+    "submission_post_schema": {
+        "type": "object",
+        "properties": {
+            "hackathon_id": HACKATHON_ID,
+            "group_id": GROUP_ID
+        }
+    }
 }

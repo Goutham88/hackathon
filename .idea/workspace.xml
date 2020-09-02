@@ -15,7 +15,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../hackathon" />
+  </component>
   <component name="ProjectId" id="1grKPKCbwXzNGF1Bmk7rbtrJqWA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -24,11 +28,12 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/entities" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hackathon/entities" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\PycharmProjects\hackathon\entities" />
       <recent name="C:\Users\Admin\PycharmProjects\abcd\entities" />
       <recent name="C:\Users\Admin\PycharmProjects\abcd" />
     </key>
@@ -168,9 +173,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598869924779" />
-    <state x="277" y="54" key="SettingsEditor" timestamp="1599043395106">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2180" y="56" key="SettingsEditor" timestamp="1599072252640">
+      <screen x="1920" y="0" width="1440" height="860" />
     </state>
+    <state x="2180" y="56" key="SettingsEditor/0.0.1536.824/1920.0.1440.860@1920.0.1440.860" timestamp="1599072252640" />
     <state x="277" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1599043395106" />
     <state x="399" y="109" width="738" height="606" key="find.popup" timestamp="1599050359085">
       <screen x="0" y="0" width="1536" height="824" />

@@ -1,6 +1,7 @@
 from data_accessor import DataAccessor
-from entities.hackathon_entity import HackathonEntity
 from entities.group_entity import GroupEntity
+from entities.hackathon_entity import HackathonEntity
+from entities.submission_entity import SubmissionEntity
 
 
 class SubmissionHandler:
@@ -8,6 +9,7 @@ class SubmissionHandler:
         self.dao = DataAccessor()
         self.hackathon_entity_object = HackathonEntity()
         self.group_entity_object = GroupEntity()
+        self.submission_entity_object = SubmissionEntity()
 
     def run_testcases(self, code, hackathon_id, group_id):
         self.hackathon_entity_object.hackathon_id = hackathon_id
@@ -16,8 +18,12 @@ class SubmissionHandler:
         score = 0
         solved_testcases = []
         for testcase in testcases:
-            if code(testcase["input"]) == testcase["output"]:
+            # if code(testcase["input"]) == testcase["output"]:
+            # commenting the above line for testing since we don't have real code
+            if True:
                 score += testcase["weightage"]
                 solved_testcases.append(testcase["testcase_id"])
-        self.dao.insert_submission_details(self.group_entity_object, score)
+        self.submission_entity_object.score = score
+        self.submission_entity_object = self.dao.insert_submission_details(self.group_entity_object,
+                                                                           self.submission_entity_object)
         return {"score": score, "solved_testcases": solved_testcases}
