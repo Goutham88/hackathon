@@ -9,6 +9,7 @@ auth = HTTPDigestAuth()
 
 
 class BaseController(Resource):
+    # all the requests first come here, once authentication is sucessfully done, we call the respective controller
     def __new__(cls, *args, **kwargs):
         @auth.get_password  # decorator for flask http digest auth
         def get_pw(username):

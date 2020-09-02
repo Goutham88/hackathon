@@ -16,8 +16,13 @@ api = Api(app)
 
 
 class LeaderBoardController(BaseController):
-
+    """
+    LeaderBoard API
+    """
     def get(self):
+        """
+        GET of leaderboard API - takes hackathon id and returns all the scores for that hackathon
+        """
         try:
             hackathon_id = request.args.get("hackathon_id")
             leaderboard_data = LeaderBoardHandler().get_leaderboard(hackathon_id)
@@ -36,8 +41,13 @@ api.add_resource(LeaderBoardController, '/leaderboard/', endpoint="leaderboard")
 
 
 class SubmissionController(BaseController):
-
+    """
+    Submission API
+    """
     def post(self):
+        """
+        POST of submission API - takes code, hackathon_id, group_id and returns score and passed testcases
+        """
         try:
             request_data = request.get_json()
             validictory.validate(request_data, SCHEMA["submission_post_schema"])

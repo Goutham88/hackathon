@@ -12,6 +12,11 @@ class SubmissionHandler:
         self.submission_entity_object = SubmissionEntity()
 
     def run_testcases(self, code, hackathon_id, group_id):
+        """
+        This is a utility function used by submission API.
+        Runs the code for each test case and based the result, it adds the score and saves the submission info to table
+        using DAO
+        """
         self.hackathon_entity_object.hackathon_id = hackathon_id
         self.group_entity_object.group_id = group_id
         testcases = self.dao.get_test_cases_by_hackathon_id(self.hackathon_entity_object)
